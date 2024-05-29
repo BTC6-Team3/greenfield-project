@@ -8,18 +8,17 @@ import {
   Stack,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import classes from "./Signin.module.css";
 
 export const Signin = () => {
   const form = useForm({
-    mode: "uncontrolled",
     initialValues: {
       email: "",
       password: "",
     },
 
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      email: (value) =>
+        /^\S+@\S+$/.test(value) ? null : "無効なEメールアドレスです。",
       password: (value) =>
         value.length < 6 ? "パスワードは６文字以上で入力してください" : null,
     },
