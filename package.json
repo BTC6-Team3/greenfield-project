@@ -12,5 +12,9 @@
   "workspaces": [
     "backend",
     "frontend"
-  ]
+  ],
+  "dependencies": {
+    "@mantine/core": "^7.10.0",
+    "@mantine/hooks": "^7.10.0"
+  }
 }
