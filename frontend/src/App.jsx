@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
-import { Signup } from "./components/Signup";
+import { Routes, Route } from "react-router-dom";
+import { SignupPage } from "./pages/SignupPage/SignupPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,7 +10,9 @@ function App() {
   return (
     <>
       <MantineProvider>
-        <Signup />
+        <Routes>
+          <Route path="signup" element={<SignupPage />} />
+        </Routes>
       </MantineProvider>
     </>
   );
