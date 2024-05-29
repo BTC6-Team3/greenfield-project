@@ -1,12 +1,4 @@
-import {
-  Button,
-  Group,
-  TextInput,
-  Title,
-  Anchor,
-  Image,
-  Stack,
-} from "@mantine/core";
+import { Button, Group, TextInput, Anchor, Stack } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 export const Signin = () => {
@@ -26,9 +18,7 @@ export const Signin = () => {
   return (
     <>
       <form onSubmit={form.onSubmit((values) => console.log(values))}>
-        <Image src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-7.png"></Image>
-        <Stack gap="lg" p="15px">
-          <Title order={2}>ようこそ</Title>
+        <Stack gap="lg" p="20px">
           <TextInput
             withAsterisk
             label="Email"
