@@ -1,4 +1,4 @@
-import { Button, Checkbox, Group, TextInput } from "@mantine/core";
+import { Button, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 export const Signup = () => {
