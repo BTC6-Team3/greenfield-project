@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Button, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
@@ -18,8 +19,11 @@ export const Signup = () => {
     },
   });
 
+  const handleOnSubmit = async (values) => {
+    await axios.post("http://localhost:3000/signUp", values);
+  };
   return (
-    <form onSubmit={form.onSubmit((values) => console.log(values))}>
+    <form onSubmit={form.onSubmit(handleOnSubmit)}>
       <TextInput
         withAsterisk
         label="Email"
