@@ -13,6 +13,7 @@ function App() {
           <Route path="signup" element={<SignupPage />} />
           <Route path="input" element={<InputPage />} />
           <Route path="signin" element={<SigninPage />} />
+          <Route path="/" element={<SignupPage />} />
         </Routes>
       </MantineProvider>
     </>
