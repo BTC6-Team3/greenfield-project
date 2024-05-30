@@ -16,6 +16,10 @@ const createServer = () => {
   app.use("/signUp", signUpRouter(knex));
   // app.use("/", rootRouter());
   // app.use("/", rootRouter());
+  app.use((req, res, next) => {
+    res.sendFile(path.join(__dirname, "../../frontend", "dist", "index.html"));
+  });
+
   return app;
 };
 
