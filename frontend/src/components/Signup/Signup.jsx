@@ -22,7 +22,7 @@ export const Signup = () => {
   });
 
   const handleOnSubmit = async (values) => {
-    await axios.post("http://localhost:3000/signUp", values);
+    await axios.post("/signUp", values);
     return navigate("/input");
   };
   return (
