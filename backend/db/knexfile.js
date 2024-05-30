@@ -1,5 +1,10 @@
 // Update with your config settings.
 require("dotenv").config();
+
+if (process.env.DB_NAME === undefined) {
+  require("dotenv").config({ path: "./db/.env" });
+}
+
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
@@ -14,6 +19,9 @@ module.exports = {
     migrations: {
       directory: "./migrations",
     },
+    seeds: {
+      directory: "./seeds/dev",
+    },
   },
 
   production: {
@@ -22,6 +30,9 @@ module.exports = {
 
     migrations: {
       directory: "./migrations",
+    },
+    seeds: {
+      directory: './seeds/prod',
     },
   },
 };
