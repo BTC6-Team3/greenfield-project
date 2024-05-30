@@ -1,7 +1,10 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Button, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 export const Signup = () => {
+  const navigate = useNavigate();
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -18,8 +21,12 @@ export const Signup = () => {
     },
   });
 
+  const handleOnSubmit = async (values) => {
+    await axios.post("/signUp", values);
+    return navigate("/input");
+  };
   return (
-    <form onSubmit={form.onSubmit((values) => console.log(values))}>
+    <form onSubmit={form.onSubmit(handleOnSubmit)}>
       <TextInput
         withAsterisk
         label="Email"
