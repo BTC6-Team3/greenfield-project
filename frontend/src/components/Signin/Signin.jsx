@@ -1,7 +1,13 @@
-import { Button, Group, TextInput, Anchor, Stack } from "@mantine/core";
+import { Button, Group, TextInput, Anchor, Stack, Text } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Signin = () => {
+  const navigate = useNavigate();
+  const [passLabel, setPassLabel] = useState("");
+
   const form = useForm({
     initialValues: {
       email: "",
@@ -15,9 +21,23 @@ export const Signin = () => {
         value.length < 6 ? "パスワードは６文字以上で入力してください" : null,
     },
   });
+  const handleOnSubmit = async (values) => {
+    try {
+      await axios.post("/signIn", values);
+      setPassLabel("");
+      return navigate("/input");
+    } catch (error) {
+      if (error.response.status === 401) {
+        setPassLabel("メールアドレスもしくはパスワードが不一致");
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
   return (
     <>
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form onSubmit={form.onSubmit(handleOnSubmit)}>
         <Stack gap="lg" p="20px">
           <TextInput
             withAsterisk
@@ -36,6 +56,9 @@ export const Signin = () => {
             key={form.key("password")}
             {...form.getInputProps("password")}
           />
+          <Text c="white" bg="red">
+            {passLabel}
+          </Text>
 
           <Group justify="flex-start" mt="md">
             <Button type="submit" fullWidth size="lg" color="indigo">
