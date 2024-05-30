@@ -21,7 +21,7 @@ module.exports = {
     connection: process.env.DB_URL,
 
     migrations: {
-      tableName: "./migrations",
+      directory: "./migrations",
     },
   },
 };
