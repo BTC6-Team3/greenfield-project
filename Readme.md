@@ -32,7 +32,9 @@ npm run dev -w frontend
 npm run dev -w backend
 ```
 
-## .env の作成場所
+## DB の設定方法
+
+### .env の作成場所
 
 - .env は db 内に作成
 
@@ -43,7 +45,16 @@ backend
  ┃ ┣ .env.example  
  ┃ ┗ knexfile.js
 
+### 初期化
+
+``.sh
+npm run latestMigrate
+npm run seed
+
+```
+
 ## Appendix
 
 - npm workspace の使用方法
   https://zenn.dev/ttaniguchi/articles/27971fdf7b30e1#npm-workspace%E3%82%92%E4%BD%BF%E3%81%86
+```
