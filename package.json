@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm i && npm run latestMigrate -w backend && npm run build -w frontend",
+    "build": "npm i -w frontend && npm i -w backend && npm run latestMigrate -w backend && npm run build -w frontend",
     "start": "npm start -w backend"
   },
   "keywords": [],
