@@ -4,6 +4,7 @@ info:
   version: 0.0.1
 tags:
   - name: auth
+  - name: route
 servers:
   - url: http://localhost:3000/
     description: 開発環境
@@ -69,4 +70,67 @@ paths:
           description: リソース未検出エラー
         500:
           description: サーバーエラー
- 
+  /route:
+    get:
+      tags:
+        - "route"
+      description: 出発地、目的のエリア、所用時間からおすすめのルートを提示
+      parameters:
+        - name: originLatitude
+          in: query
+          schema:
+            type: number
+        - name: originLongitude
+          in: query
+          schema:
+            type: number
+        - name: area
+          in: query
+          schema:
+            type: string
+        - name: requiredTime
+          in: query
+          schema:
+            type: number
+      responses:
+        200:
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RouteItem"
+        401:
+          description: 認証エラー
+        403:
+          description: 認可エラー
+        404:
+          description: リソース未検出エラー
+        500:
+          description: サーバーエラー
+components:
+  schemas:
+    RouteItem:
+      type: object
+      properties:
+        totalDuration:
+          type: number
+          description: 総所要時間 (秒)
+          example: 120
+        waypoints:
+          type: array
+          items:
+            type: object
+            properties:
+              location:
+                type: object
+                properties:
+                  latitude:
+                    type: number
+                  longitude:
+                    type: number
+              spotName:
+                type: string
+              spotDescription:
+                type: string
+              spotAddress:
+                type: string
