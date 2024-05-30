@@ -7,6 +7,7 @@ const knex = require("knex")(knexConfig[environment]);
 const rootRouter = require("./route/root");
 // const signInRouter = require("./route/signIn");
 const signUpRouter = require("./route/signUp");
+console.log(__dirname);
 
 const createServer = () => {
   const app = express();
