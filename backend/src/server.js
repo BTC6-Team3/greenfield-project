@@ -12,7 +12,7 @@ const createServer = () => {
   const app = express();
   app.use(express.json());
   app.use(cors());
-  app.use(express.static(__dirname + "../../frontend/dist"));
+  app.use(express.static(path.join(__dirname, "../../frontend", "dist")));
   // app.use("/signIn", signInRouter());
   app.use("/signUp", signUpRouter(knex));
   // app.use("/", rootRouter());
