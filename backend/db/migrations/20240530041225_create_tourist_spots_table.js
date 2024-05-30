@@ -15,9 +15,7 @@ exports.up = function (knex) {
       table.text("address");
       table.float("latitude");
       table.float("longitude");
-      table.integer("required_time");
-      table.date("created_at");
-      table.date("updated_at");
+      table.float("required_time");
       table.integer("area_id");
       table.foreign("area_id").references("areas.area_id");
     });
