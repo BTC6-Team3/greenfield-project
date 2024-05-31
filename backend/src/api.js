@@ -6,7 +6,7 @@ const api = knex => {
   //----------------------------------------------------------------------------
   router.get("/areas", (req, res) => {
     knex("areas")
-      .select("area_name")
+      .select()
       .then(response => res.send(response))
       .catch(() => res.status(400));
   });
