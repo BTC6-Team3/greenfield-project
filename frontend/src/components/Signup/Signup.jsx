@@ -27,7 +27,6 @@ export const Signup = () => {
 
   const handleOnGithub = async () => {
     await axios.post("/auth/github").then(res => console.log(res));
-    // return navigate("/input");
   };
 
   return (
