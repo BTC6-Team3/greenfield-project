@@ -3,8 +3,10 @@ import { useForm } from "@mantine/form";
 import classes from "./Input.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Input = () => {
+  const navigate = useNavigate();
   const [areas, setAreas] = useState([]);
 
   const form = useForm({
@@ -17,6 +19,11 @@ export const Input = () => {
       area: value => (value === "" ? "エリアを選択してください。" : null),
     },
   });
+
+  const githubLogout = async () => {
+    await axios.get("/auth/github/signout");
+    return navigate("/");
+  };
 
   useEffect(() => {
     (async () => {
@@ -51,6 +58,15 @@ export const Input = () => {
           プランを作成
         </Button>
       </Group>
+      <Button
+        className={classes.button}
+        variant="filled"
+        color="gray"
+        radius="xl"
+        onClick={githubLogout}
+      >
+        logout
+      </Button>
     </form>
   );
 };
