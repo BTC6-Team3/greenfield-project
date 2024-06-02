@@ -12,14 +12,14 @@ const api = require("./api");
 
 const createServer = () => {
   const app = express();
-  app.use(
-    session({
-      secret: "keyboard cat",
-      resave: false,
-      saveUninitialized: true,
-      cookie: { secure: true },
-    })
-  );
+  // app.use(
+  //   session({
+  //     secret: "keyboard cat",
+  //     resave: false,
+  //     saveUninitialized: true,
+  //     cookie: { secure: true },
+  //   })
+  // );
   app.use(cors());
   app.use(express.json());
   app.use(express.static(path.join(__dirname, "../../frontend", "dist")));
@@ -31,6 +31,7 @@ const createServer = () => {
   app.use("/api", api(knex));
 
   // app.use("/auth/github", githubRouter);
+
   app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "../../frontend", "dist", "index.html"));
   });
