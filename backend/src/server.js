@@ -7,14 +7,12 @@ const session = require("express-session");
 const signInRouter = require("./route/signIn");
 const signUpRouter = require("./route/signUp");
 const logoutRouter = require("./route/logout");
-const githubAuth = require("./route/github");
+const authenticatedRouter = require("./route/authenticated");
 const api = require("./api");
 const passport = require("passport");
 
 const createServer = () => {
   const app = express();
-  app.use(cors());
-  app.use(express.json());
   app.use(
     session({
       secret: "keyboard cat",
@@ -25,31 +23,34 @@ const createServer = () => {
   );
   app.use(passport.initialize());
   app.use(passport.session());
+
+  app.use(cors());
+  app.use(express.json());
   app.use(express.static(path.join(__dirname, "../../frontend", "dist")));
   app.use("/signIn", signInRouter());
   app.use("/signUp", signUpRouter(knex));
   app.use("/logout", logoutRouter());
-
-  app.use("/auth/github", githubAuth(knex));
+  app.use("/authenticated", authenticatedRouter(knex));
   app.use("/api", api(knex));
-
-  // app.use("/auth/github", githubRouter);
 
   app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, "../../frontend", "dist", "index.html"));
   });
 
   passport.serializeUser((user, done) => {
-    console.log(user[0]);
-    done(null, user[0]);
+    console.log(user);
+    done(null, user);
   });
-  passport.deserializeUser(async (email, done) => {
-    try {
-      done(null, email);
-    } catch (err) {
-      done(err);
-    }
+  passport.deserializeUser(function (user, done) {
+    done(null, user);
   });
+  // passport.deserializeUser(async (email, done) => {
+  //   try {
+  //     done(null, email);
+  //   } catch (err) {
+  //     done(err);
+  //   }
+  // });
 
   return app;
 };

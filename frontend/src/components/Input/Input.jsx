@@ -20,9 +20,8 @@ export const Input = () => {
     },
   });
 
-  const githubLogout = async () => {
-    await axios.get("/auth/github/signout");
-    return navigate("/");
+  const logout = async () => {
+    await axios.post("/logout");
   };
 
   useEffect(() => {
@@ -58,14 +57,8 @@ export const Input = () => {
           プランを作成
         </Button>
       </Group>
-      <Button
-        className={classes.button}
-        variant="filled"
-        color="gray"
-        radius="xl"
-        onClick={githubLogout}
-      >
-        logout
+      <Button className={classes.button} variant="filled" color="gray" radius="xl" onClick={logout}>
+        logoutです
       </Button>
     </form>
   );
