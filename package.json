@@ -18,6 +18,7 @@
   "dependencies": {
     "@mantine/core": "^7.10.0",
     "@mantine/hooks": "^7.10.0",
+    "chai": "^4.4.1",
     "vite": "^5.2.12"
   }
 }
