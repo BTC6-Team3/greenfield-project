@@ -8,7 +8,7 @@ export const DriveRoute = () => {
   const spotId = location.state.spotId;
 
   useEffect(() => {
-    console.log(JSON.parse(spotId));
+    console.log(spotId);
   }, []);
 
   return (
