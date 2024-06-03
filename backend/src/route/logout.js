@@ -1,15 +1,24 @@
 const express = require("express");
 const router = express.Router();
+
 // const passport = require("../config/passport");
 
 const logout = () => {
+  const app = express();
+
   router.post("/", function (req, res, next) {
-    console.log(req.logout);
     req.logout(err => {
       if (err) {
         return next(err);
       }
-      res.redirect("/");
+      req.session.destroy(err => {
+        if (err) {
+          return next(err);
+        }
+        res.clearCookie("connect.sid");
+        console.log("ログアウト成功");
+        res.redirect("/");
+      });
     });
   });
 
