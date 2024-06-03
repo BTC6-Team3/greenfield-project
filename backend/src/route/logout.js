@@ -4,11 +4,12 @@ const router = express.Router();
 
 const logout = () => {
   router.post("/", function (req, res, next) {
-    console.log(req.logout);
+    console.log("kita");
     req.logout(err => {
       if (err) {
         return next(err);
       }
+      req.session.destroy(console.log("destroy"));
       res.redirect("/");
     });
   });

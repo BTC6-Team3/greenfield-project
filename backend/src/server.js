@@ -11,6 +11,7 @@ const signUpRouter = require("./route/signUp");
 const logoutRouter = require("./route/logout");
 const githubAuth = require("./route/github");
 const api = require("./api");
+const passport = require("passport");
 
 const createServer = () => {
   const app = express();
@@ -22,6 +23,10 @@ const createServer = () => {
       cookie: { maxAge: 30000 },
     })
   );
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+
   app.use(cors());
   app.use(express.json());
   app.use(express.static(path.join(__dirname, "../../frontend", "dist")));
