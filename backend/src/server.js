@@ -5,7 +5,6 @@ const knex = require("./config/knex");
 const signInRouter = require("./route/signIn");
 const signUpRouter = require("./route/signUp");
 const api = require("./api");
-const path = require("path");
 
 const createServer = () => {
   const app = express();
