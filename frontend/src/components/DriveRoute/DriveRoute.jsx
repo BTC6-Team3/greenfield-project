@@ -39,7 +39,7 @@ export const DriveRoute = () => {
         );
         longLatiArr.unshift(currentPosition.split(','));
         const res = await axios(
-          `http://router.project-osrm.org/table/v1/driving/${path}`
+          `https://router.project-osrm.org/table/v1/driving/${path}`
         );
 
         const timeArr = res.data.durations.map((arr, index) =>
