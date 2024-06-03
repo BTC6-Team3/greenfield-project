@@ -15,13 +15,12 @@ export const Signin = () => {
     },
 
     validate: {
-      email: (value) =>
-        /^\S+@\S+$/.test(value) ? null : "無効なEメールアドレスです。",
-      password: (value) =>
-        value.length < 6 ? "パスワードは６文字以上で入力してください" : null,
+      email: value => (/^\S+@\S+$/.test(value) ? null : "無効なEメールアドレスです。"),
+      password: value => (value.length < 6 ? "パスワードは６文字以上で入力してください" : null),
     },
   });
-  const handleOnSubmit = async (values) => {
+  const handleOnSubmit = async values => {
+    console.log(values);
     try {
       await axios.post("/signIn", values);
       setPassLabel("");

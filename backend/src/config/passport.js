@@ -13,6 +13,7 @@ passport.use(
     async (email, password, done) => {
       const userInfo = await knex.select("email", "password").from("users").where({ email: email });
       console.log("userInfo:", userInfo);
+
       if (userInfo.length === 0) {
         return done(null, false, { message: "Incorrect email." });
       }
