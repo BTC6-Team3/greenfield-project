@@ -1,29 +1,167 @@
 [
   {
-    "name": "岡崎城",
-    "description": "徳川家康の生誕地である歴史的な城。現在は復元された天守閣が博物館として公開されており、武具や古文書などが展示されています。",
-    "address": "愛知県岡崎市康生通西1-5",
-    "latitude": "34.955132",
-    "longitude": "137.158034",
-    "required_time": "1.5",
-    "area_id": 1
-  },
-  {
-    "name": "岡崎公園",
-    "description": "岡崎城を中心に整備された広大な公園。桜の名所としても知られ、春には多くの花見客で賑わいます。また、年間を通じて様々なイベントが開催されます。",
-    "address": "愛知県岡崎市康生通西1丁目",
-    "latitude": "34.956841",
-    "longitude": "137.159316",
-    "required_time": "1.0",
-    "area_id": 1
-  },
-  {
     "name": "ミューズかきつばた",
     "description": "岡崎市の伝統工芸「岡崎かきつばた染」を体験できる施設。染色体験だけでなく、作品の展示や販売も行っています。",
     "address": "愛知県岡崎市八帖町字石田1",
     "latitude": "34.942581",
     "longitude": "137.172594",
     "required_time": "2.0",
-    "area_id": 1
+    "area_id": 1,
+    "budget": 2000,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "岡崎城",
+    "description": "岡崎城は、徳川家康が生まれた城として知られ、美しい庭園や博物館も併設されています。",
+    "address": "愛知県岡崎市康生町561-1",
+    "latitude": "34.95615",
+    "longitude": "137.17112",
+    "required_time": "1.5",
+    "area_id": 1,
+    "budget": 500,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "岡崎公園",
+    "description": "岡崎公園は、岡崎城の周辺に広がる広大な公園で、桜の名所としても有名です。",
+    "address": "愛知県岡崎市康生町561-1",
+    "latitude": "34.95597",
+    "longitude": "137.16972",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "大樹寺",
+    "description": "大樹寺は、徳川家康の菩提寺であり、美しい庭園と歴史的な建物が魅力です。",
+    "address": "愛知県岡崎市大樹寺町字小針1",
+    "latitude": "34.99809",
+    "longitude": "137.16645",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "伊賀八幡宮",
+    "description": "伊賀八幡宮は、徳川家康が戦勝祈願をした神社で、美しい建築と自然に囲まれた静かな場所です。",
+    "address": "愛知県岡崎市伊賀町東郷中86",
+    "latitude": "34.96601",
+    "longitude": "137.15737",
+    "required_time": "0.5",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "岡崎市美術博物館",
+    "description": "岡崎市美術博物館は、現代美術から歴史的なアート作品まで幅広い展示を楽しめる博物館です。",
+    "address": "愛知県岡崎市六名南町字出崎15-1",
+    "latitude": "34.94774",
+    "longitude": "137.16448",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 300,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "八丁味噌の郷",
+    "description": "八丁味噌の郷は、岡崎名物の八丁味噌を製造する工場見学や試食が楽しめるスポットです。",
+    "address": "愛知県岡崎市八帖町字往還通69",
+    "latitude": "34.95130",
+    "longitude": "137.17743",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "三河武士のやかた家康館",
+    "description": "三河武士のやかた家康館は、徳川家康と三河武士の歴史を紹介する博物館です。",
+    "address": "愛知県岡崎市康生町561-1",
+    "latitude": "34.95592",
+    "longitude": "137.17136",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 300,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "岡崎げんき館",
+    "description": "岡崎げんき館は、市民の健康と福祉をサポートする施設で、多目的ホールやプールもあります。",
+    "address": "愛知県岡崎市大門3丁目8",
+    "latitude": "34.98423",
+    "longitude": "137.16617",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 500,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "南公園",
+    "description": "南公園は、豊かな自然と広い芝生が特徴の公園で、ファミリーやカップルに人気のスポットです。",
+    "address": "愛知県岡崎市若松町丸山地内",
+    "latitude": "34.93026",
+    "longitude": "137.17815",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "龍城温泉",
+    "description": "龍城温泉は、岡崎市内にある温泉施設で、疲れを癒すことができる場所です。",
+    "address": "愛知県岡崎市康生町561-1",
+    "latitude": "34.95560",
+    "longitude": "137.17090",
+    "required_time": "2.0",
+    "area_id": 1,
+    "budget": 1000,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "万葉集公園",
+    "description": "万葉集公園は、日本最古の歌集「万葉集」をテーマにした公園で、美しい自然と文化を楽しめます。",
+    "address": "愛知県岡崎市中島町蓮池9",
+    "latitude": "34.93347",
+    "longitude": "137.22853",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "龍城神社",
+    "description": "龍城神社は、岡崎城の守護神として信仰され、静かな森に囲まれた神聖な場所です。",
+    "address": "愛知県岡崎市康生町561-1",
+    "latitude": "34.95560",
+    "longitude": "137.17090",
+    "required_time": "0.5",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋外"
+  },
+  {
+    "name": "宗徳寺",
+    "description": "宗徳寺は、歴史的な建物と静かな庭園が魅力の寺院で、心を落ち着ける場所です。",
+    "address": "愛知県岡崎市六名本町8-11",
+    "latitude": "34.94499",
+    "longitude": "137.17056",
+    "required_time": "0.5",
+    "area_id": 1,
+    "budget": 0,
+    "in_or_out": "屋内"
+  },
+  {
+    "name": "岡崎げんきの郷",
+    "description": "岡崎げんきの郷は、地元産の新鮮な野菜や特産品が揃う市場で、食事や買い物が楽しめます。",
+    "address": "愛知県岡崎市東本郷町",
+    "latitude": "34.95990",
+    "longitude": "137.16180",
+    "required_time": "1.0",
+    "area_id": 1,
+    "budget": 1000,
+    "in_or_out": "屋内"
   }
 ]
