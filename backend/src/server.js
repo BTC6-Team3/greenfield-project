@@ -4,8 +4,6 @@ const knex = require("./config/knex");
 const session = require("express-session");
 const path = require("path");
 
-const store = new session.MemoryStore();
-
 const signInRouter = require("./route/signIn");
 const signUpRouter = require("./route/signUp");
 const logoutRouter = require("./route/logout");
