@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import Map from "react-map-gl/maplibre";
 import MapLibreGlDirections from "@maplibre/maplibre-gl-directions";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Center, Flex, Loader, SimpleGrid } from "@mantine/core";
-import { IconArrowLeft, IconArrowNarrowDown } from "@tabler/icons-react";
+import { Loader, SimpleGrid } from "@mantine/core";
+import { IconArrowNarrowDown } from "@tabler/icons-react";
 import classes from "./DriveRoute.module.css";
 
 export const DriveRoute = () => {
