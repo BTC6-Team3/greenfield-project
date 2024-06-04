@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@mantine/core": "^7.10.0",
+    "@mantine/dates": "^7.10.1",
     "@mantine/form": "^7.10.0",
     "@mantine/hooks": "^7.10.0",
     "@maplibre/maplibre-gl-directions": "^0.7.0",
