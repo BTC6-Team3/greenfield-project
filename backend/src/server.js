@@ -38,7 +38,6 @@ const createServer = () => {
   });
 
   passport.serializeUser((user, done) => {
-    console.log(user);
     done(null, user);
   });
   passport.deserializeUser(function (user, done) {

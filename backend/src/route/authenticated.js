@@ -12,7 +12,8 @@ const authenticatedRouter = knex => {
   }
 
   router.get("/", isAuthenticated, (req, res) => {
-    res.send("こんにちはぁぁぁ");
+    console.log("req:", req);
+    res.send(req.body);
   });
 
   return router;

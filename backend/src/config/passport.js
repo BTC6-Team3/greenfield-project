@@ -17,7 +17,12 @@ passport.use(
         return done(null, false, { message: "Incorrect email." });
       }
       if (bcrypt.compareSync(password, userInfo[0].password)) {
-        return done(null, userInfo[0]);
+        const returnUser = await knex("users")
+          .select("name", "email")
+          .where({ email: userInfo[0].email });
+        // console.log("returnInfo:", returnUser[0]);
+
+        return done(null, returnUser[0]);
       } else {
         return done(null, false, { message: "Incorrect password." });
       }
