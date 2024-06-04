@@ -17,7 +17,7 @@ function App() {
           <Route path="signin" element={<SigninPage />} />
           <Route path="drive_route" element={<DriveRoutePage />} />
           <Route path="select_spot" element={<SelectSpotPage />} />
-          <Route path="/" element={<SignupPage />} />
+          <Route path="/" element={<SigninPage />} />
         </Routes>
       </MantineProvider>
     </>

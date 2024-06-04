@@ -1,5 +1,6 @@
 .footer_Container {
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   background-color: rgb(62, 62, 62);
   width: 100%;
