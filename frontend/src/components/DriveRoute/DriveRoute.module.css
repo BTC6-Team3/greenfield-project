@@ -7,6 +7,10 @@ p {
   margin: 5px 0px 5px 5px;
 }
 
+.plan_container {
+  padding-bottom: 80px;
+}
+
 .current_position {
   margin: 0 auto;
   text-align: center;

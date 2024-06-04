@@ -4,9 +4,10 @@ import { useLocation } from "react-router-dom";
 import Map from "react-map-gl/maplibre";
 import MapLibreGlDirections from "@maplibre/maplibre-gl-directions";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Loader, SimpleGrid } from "@mantine/core";
+import { Loader } from "@mantine/core";
 import { IconArrowNarrowDown } from "@tabler/icons-react";
 import classes from "./DriveRoute.module.css";
+import { Footer } from "../Footer/Footer";
 
 export const DriveRoute = () => {
   const position = [35.0823, 137.1562];
@@ -57,44 +58,43 @@ export const DriveRoute = () => {
     <>
       {route ? (
         <>
-          <SimpleGrid cols={1}>
-            <Map
-              initialViewState={{
-                longitude: longLatiArr[0][0],
-                latitude: longLatiArr[0][1],
-                zoom: 10,
-              }}
-              center={position}
-              style={{ width: "100%", height: 350 }}
-              mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
-              onLoad={event => {
-                const directions = new MapLibreGlDirections(event.target);
-                directions.interactive = false;
-                directions.setWaypoints(route);
-              }}
-            />
-            <div className={classes.plan_container}>
-              <p className={classes.title}>おすすめのドライブプラン</p>
-              <p className={classes.current_position}>現在地</p>
-              {spotLocation.map((arr, index) => {
-                const parse = JSON.parse(arr);
-                return (
-                  <>
-                    <p className={classes.time}>
-                      <IconArrowNarrowDown className={classes.arrow} />
-                      {`${time[index]}分`}
-                    </p>
-                    <p className={classes.name}>{parse.name}</p>
-                  </>
-                );
-              })}
-              <p className={classes.time}>
-                <IconArrowNarrowDown className={classes.arrow} />
-                {`${time[time.length - 1]}分`}
-              </p>
-              <p className={classes.current_position}>現在地</p>
-            </div>
-          </SimpleGrid>
+          <Map
+            initialViewState={{
+              longitude: longLatiArr[0][0],
+              latitude: longLatiArr[0][1],
+              zoom: 10,
+            }}
+            center={position}
+            style={{ width: "100%", height: 350 }}
+            mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
+            onLoad={event => {
+              const directions = new MapLibreGlDirections(event.target);
+              directions.interactive = false;
+              directions.setWaypoints(route);
+            }}
+          />
+          <div className={classes.plan_container}>
+            <p className={classes.title}>おすすめのドライブプラン</p>
+            <p className={classes.current_position}>現在地</p>
+            {spotLocation.map((arr, index) => {
+              const parse = JSON.parse(arr);
+              return (
+                <>
+                  <p className={classes.time}>
+                    <IconArrowNarrowDown className={classes.arrow} />
+                    {`${time[index]}分`}
+                  </p>
+                  <p className={classes.name}>{parse.name}</p>
+                </>
+              );
+            })}
+            <p className={classes.time}>
+              <IconArrowNarrowDown className={classes.arrow} />
+              {`${time[time.length - 1]}分`}
+            </p>
+            <p className={classes.current_position}>現在地</p>
+          </div>
+          <Footer />
         </>
       ) : (
         <div className={classes.loader_container}>

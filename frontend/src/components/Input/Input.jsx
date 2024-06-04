@@ -1,12 +1,13 @@
-import { Button, Group, Select } from "@mantine/core";
-import { useForm } from "@mantine/form";
-import { DatePickerInput, DatesProvider } from "@mantine/dates";
-import "dayjs/locale/ja";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button, Group, Select, Space } from "@mantine/core";
+import { DatePickerInput, DatesProvider } from "@mantine/dates";
+import { useForm } from "@mantine/form";
+import "@mantine/dates/styles.css";
 
 import classes from "./Input.module.css";
+import { Footer } from "../Footer/Footer";
 
 export const Input = () => {
   const [areas, setAreas] = useState([]);
@@ -20,13 +21,12 @@ export const Input = () => {
     },
 
     validate: {
-      area: (value) => (value === "" ? "エリアを選択してください。" : null),
+      area: value => (value === "" ? "エリアを選択してください。" : null),
     },
   });
 
-  const submit = (id) => {
-    const areaName = areas.filter((obj) => obj.area_id === Number(id.area))[0]
-      .area_name;
+  const submit = id => {
+    const areaName = areas.filter(obj => obj.area_id === Number(id.area))[0].area_name;
     navigate("/select_spot", {
       state: { areaId: id.area, areaName: areaName, dateTime: dateTime },
     });
@@ -34,43 +34,34 @@ export const Input = () => {
 
   useEffect(() => {
     (async () => {
-      const areaList = await axios("/api/areas").then((res) => res.data);
+      const areaList = await axios("/api/areas").then(res => res.data);
       setAreas(areaList);
     })();
   }, []);
 
   return (
     <>
-      <form
-        className={classes.form}
-        onSubmit={form.onSubmit((id) => submit(id))}
-      >
-        <h1>入力項目</h1>
+      <form className={classes.form} onSubmit={form.onSubmit(id => submit(id))}>
+        <h1 style={{ fontSize: "25px" }}>プランを考える</h1>
 
         <DatesProvider settings={{ firstDayOfWeek: 0, locale: "ja" }}>
           <DatePickerInput
             placeholder="日付を選択"
             value={dateTime}
             onChange={setdateTime}
-            // icon={<CalendarIcon width={24} height={24} />}
-            classNames={{
-              icon: "fill-gray-500",
-              input: "border-1 border-gray-200",
-              placeholder: "text-gray-200",
-              root: "max-w-[294px] bg-white rounded min-w-[120px]",
-            }}
-            clearble
-            // key={form.key("wether")}
-            // {...form.getInputProps("wether")}
+            dropdownType="modal"
+            label="日時"
           />
         </DatesProvider>
+
+        <Space h="xl" />
 
         <Select
           className={classes.select}
           label="ドライブエリア"
           withAsterisk
           placeholder="エリアを選択"
-          data={areas.map((obj) => ({
+          data={areas.map(obj => ({
             value: String(obj.area_id),
             label: obj.area_name,
           }))}
@@ -78,8 +69,7 @@ export const Input = () => {
           {...form.getInputProps("area")}
         />
 
-        <br />
-        <br />
+        <Space h="xl" />
 
         <Group className={classes.group} justify="flex-end" mt="md">
           <Button
@@ -93,6 +83,7 @@ export const Input = () => {
           </Button>
         </Group>
       </form>
+      <Footer />
     </>
   );
 };
