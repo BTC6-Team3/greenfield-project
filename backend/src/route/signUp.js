@@ -3,7 +3,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const signUpRouter = (knex) => {
+const signUpRouter = knex => {
   router.post("/", async (req, res) => {
     const { email, name, password } = req.body;
     const salt = bcrypt.genSaltSync(10);
