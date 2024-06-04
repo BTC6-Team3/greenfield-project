@@ -4,8 +4,8 @@ import { useLocation } from "react-router-dom";
 import Map from "react-map-gl/maplibre";
 import MapLibreGlDirections from "@maplibre/maplibre-gl-directions";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { AspectRatio, Flex, SimpleGrid } from "@mantine/core";
-
+import { Center, Flex, Loader, SimpleGrid } from "@mantine/core";
+import { IconArrowLeft, IconArrowNarrowDown } from "@tabler/icons-react";
 import classes from "./DriveRoute.module.css";
 
 export const DriveRoute = () => {
@@ -55,7 +55,7 @@ export const DriveRoute = () => {
 
   return (
     <>
-      {route && (
+      {route ? (
         <>
           <SimpleGrid cols={1}>
             <Map
@@ -65,7 +65,7 @@ export const DriveRoute = () => {
                 zoom: 10,
               }}
               center={position}
-              style={{ width: "100%", height: 400 }}
+              style={{ width: "100%", height: 350 }}
               mapStyle="https://tile.openstreetmap.jp/styles/osm-bright-ja/style.json"
               onLoad={event => {
                 const directions = new MapLibreGlDirections(event.target);
@@ -80,16 +80,26 @@ export const DriveRoute = () => {
                 const parse = JSON.parse(arr);
                 return (
                   <>
-                    <p className={classes.time}>{time[index]}</p>
+                    <p className={classes.time}>
+                      <IconArrowNarrowDown className={classes.arrow} />
+                      {`${time[index]}分`}
+                    </p>
                     <p className={classes.name}>{parse.name}</p>
                   </>
                 );
               })}
-              <p className={classes.time}>{time[time.length - 1]}</p>
+              <p className={classes.time}>
+                <IconArrowNarrowDown className={classes.arrow} />
+                {`${time[time.length - 1]}分`}
+              </p>
               <p className={classes.current_position}>現在地</p>
             </div>
           </SimpleGrid>
         </>
+      ) : (
+        <div className={classes.loader_container}>
+          <Loader color="blue" size="xl" type="dots" />
+        </div>
       )}
     </>
   );

@@ -15,6 +15,7 @@
     "@mantine/form": "^7.10.0",
     "@mantine/hooks": "^7.10.0",
     "@maplibre/maplibre-gl-directions": "^0.7.0",
+    "@tabler/icons-react": "^3.5.0",
     "@vitejs/plugin-react": "^4.3.0",
     "axios": "^1.7.2",
     "maplibre-gl": "^4.3.2",

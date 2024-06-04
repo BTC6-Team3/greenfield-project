@@ -4,18 +4,37 @@ p {
 }
 
 .title {
-  margin-left: 10%;
+  margin: 5px 0px 5px 5px;
 }
 
 .current_position {
   margin: 0 auto;
+  text-align: center;
+  width: 230px;
+  border: solid gray 1px;
+  border-radius: 5px;
 }
 
+.arrow {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0px;
+}
 .time {
-  text-align: right;
-  margin-left: 80%;
+  margin: 0 auto;
+  vertical-align: middle;
 }
 
 .name {
   margin: 0 auto;
+  text-align: center;
+  width: 230px;
+  border: solid gray 1px;
+  border-radius: 5px;
+}
+
+.loader_container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
