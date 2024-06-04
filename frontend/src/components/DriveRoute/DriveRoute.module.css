@@ -1,0 +1,21 @@
+p {
+  margin: 0;
+  width: fit-content;
+}
+
+.title {
+  margin-left: 10%;
+}
+
+.current_position {
+  margin: 0 auto;
+}
+
+.time {
+  text-align: right;
+  margin-left: 80%;
+}
+
+.name {
+  margin: 0 auto;
+}
