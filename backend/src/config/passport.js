@@ -11,15 +11,17 @@ passport.use(
       session: false,
     },
     async (email, password, done) => {
-      const userInfo = await knex
-        .select("email", "password")
-        .from("users")
-        .where({ email: email });
+      const userInfo = await knex.select("email", "password").from("users").where({ email: email });
       if (userInfo.length === 0) {
         return done(null, false, { message: "Incorrect email." });
       }
       if (bcrypt.compareSync(password, userInfo[0].password)) {
-        return done(null, userInfo[0]);
+        const returnUser = await knex("users")
+          .select("name", "email")
+          .where({ email: userInfo[0].email });
+        // console.log("<1.passportファイル>", returnUser[0]);
+        console.log("ログインしました。");
+        return done(null, returnUser[0]);
       } else {
         return done(null, false, { message: "Incorrect password." });
       }
