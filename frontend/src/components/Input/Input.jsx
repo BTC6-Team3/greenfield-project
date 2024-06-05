@@ -32,10 +32,10 @@ export const Input = () => {
     });
   };
 
-  const logout = () => {
-    axios.post("/logout");
-    navigate("/signin");
-  };
+  // const logout = () => {
+  //   axios.post("/logout");
+  //   navigate("/signin");
+  // };
 
   useEffect(() => {
     (async () => {
@@ -88,7 +88,7 @@ export const Input = () => {
           </Button>
         </Group>
         <Space h={"xl"} />
-        <Center>
+{/*         <Center>
           <Button
             className={classes.button}
             variant="filled"
@@ -98,7 +98,7 @@ export const Input = () => {
           >
             logout
           </Button>
-        </Center>
+        </Center> */}
       </form>
       <Footer />
     </>
