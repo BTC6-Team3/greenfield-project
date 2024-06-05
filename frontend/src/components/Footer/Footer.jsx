@@ -15,7 +15,7 @@ export const Footer = () => {
     <>
       <Group justify="center" className={classes.footer_Container} gap={"50px"}>
         <IconMenu2 size={48} color="white" />
-        <IconHome size={48} color="white" onClick={navigate("/input")} />
+        <IconHome size={48} color="white" />
         <IconUserCircle size={48} color="white" onClick={logout} />
         <IconCar size={48} color="white" />
       </Group>
