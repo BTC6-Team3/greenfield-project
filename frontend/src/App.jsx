@@ -1,6 +1,6 @@
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { InputPage } from "./pages/InputPage";
 import { SignupPage } from "./pages/SignupPage";
 import { SigninPage } from "./pages/SigninPage";
@@ -11,11 +11,14 @@ import axios from "axios";
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     (async () => {
-      const authenticated = await axios.get("/authenticated");
-      authenticated.data || navigate("/signin");
+      if (location.pathname !== "/signup") {
+        const authenticated = await axios.get("/authenticated");
+        authenticated.data || navigate("/signin");
+      }
     })();
   }, []);
   return (
