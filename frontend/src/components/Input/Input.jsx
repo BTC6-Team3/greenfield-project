@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button, Group, Select, Space } from "@mantine/core";
+import { Button, Center, Group, Select, Space } from "@mantine/core";
 import { DatePickerInput, DatesProvider } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import "@mantine/dates/styles.css";
@@ -30,6 +30,11 @@ export const Input = () => {
     navigate("/select_spot", {
       state: { areaId: id.area, areaName: areaName, dateTime: dateTime },
     });
+  };
+
+  const logout = () => {
+    axios.post("/logout");
+    navigate("/signin");
   };
 
   useEffect(() => {
@@ -82,6 +87,18 @@ export const Input = () => {
             プランを作成
           </Button>
         </Group>
+        <Space h={"xl"} />
+        <Center>
+          <Button
+            className={classes.button}
+            variant="filled"
+            color="gray"
+            radius="xl"
+            onClick={logout}
+          >
+            logout
+          </Button>
+        </Center>
       </form>
       <Footer />
     </>

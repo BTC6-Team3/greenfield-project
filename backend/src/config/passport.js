@@ -19,7 +19,8 @@ passport.use(
         const returnUser = await knex("users")
           .select("name", "email")
           .where({ email: userInfo[0].email });
-
+        // console.log("<1.passportファイル>", returnUser[0]);
+        console.log("ログインしました。");
         return done(null, returnUser[0]);
       } else {
         return done(null, false, { message: "Incorrect password." });

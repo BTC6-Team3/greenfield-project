@@ -30,8 +30,11 @@ const createServer = () => {
   app.use("/signIn", signInRouter());
   app.use("/signUp", signUpRouter(knex));
   app.use("/logout", logoutRouter());
-  app.use("/authenticated", authenticatedRouter(knex));
   app.use("/api", api(knex));
+  app.use("/authenticated", authenticatedRouter(knex));
+  // app.use("/", (req, res) => {
+  //   res.redirect("/authenticated");
+  // });
   //---------------------------------------------------------------------------------
 
   app.use((req, res, next) => {
@@ -40,10 +43,12 @@ const createServer = () => {
 
   //---------------------------------------------------------------------------------
   passport.serializeUser((user, done) => {
+    // console.log("<2.serializeUser>", user);
     done(null, user);
   });
 
   passport.deserializeUser(function (user, done) {
+    // console.log("<3(リロードの度).deserializeUser>", user);
     done(null, user);
   });
   //---------------------------------------------------------------------------------
